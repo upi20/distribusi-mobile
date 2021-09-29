@@ -170,6 +170,28 @@ class DashboardModel extends Render_Model
         return $return;
     }
 
+    public function api_warung_detail($id_sales, $id = null): ?array
+    {
+        $this->db->select("a.kode, a.nama_pemilik, a.nama_warung, a.alamat");
+        $this->db->from('warung a');
+        $this->db->where('a.id_sales', $id_sales);
+
+        if ($id == null) {
+            $db = $this->db->get();
+            $length = $db->num_rows();
+            $return = $db->result_array();
+        } else {
+            $this->db->where('a.id', $id);
+            $db = $this->db->get();
+            $length = $db->num_rows();
+            $return = $db->row_array();
+        }
+
+
+        $return = ['data' => $return, 'length' => $length];
+        return $return;
+    }
+
     public function api_listSatuanHarga($id, $cari): ?array
     {
         $this->db->select('id, nama as text, harga, qty, id_produk');

@@ -12,7 +12,7 @@
                                 <h6 class="my-1">Penjualan</h6>
                             </td>
                             <td style="float: right; margin-top: -20px;">
-                                <a id="btn-kirim" onclick="simpanPenjualan(this)" target="_self" class="btn btn-xs btn-default mt-3" style="background-color: rgb(37 75 239 / 95%);"><i class="bi bi-save-fill"></i> Simpan</a>
+                                <a onclick="simpanPenjualan(this)" target="_self" class="btn btn-xs btn-default mt-3" style="background-color: rgb(37 75 239 / 95%);"><i class="bi bi-save-fill"></i> Simpan</a>
                             </td>
                         </tr>
                     </table>
@@ -39,9 +39,8 @@
                     </div>
                     <div class="col-12">
                         <div class="form-group form-floating">
-                            <select class="form-control" id="list-produk">
-                            </select>
-                            <label for="paket-harga">Produk</label>
+                            <input type="text" class="form-control" placeholder="" value="" id="produk" readonly>
+                            <label for="produk">Produk</label>
                         </div>
                     </div>
                     <div class="container">
@@ -49,15 +48,13 @@
                             <tr>
                                 <td>
                                     <div class="form-group form-floating">
-                                        <select class="form-control" id="list-paket-karton">
-                                        </select>
+                                        <input type="text" class="form-control" placeholder="" value="" id="list-paket-karton" readonly>
                                         <label for="list-paket-karton">Paket Harga Karton</label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group form-floating">
-                                        <select class="form-control" id="list-paket-renceng">
-                                        </select>
+                                        <input type="text" class="form-control" placeholder="" value="" id="list-paket-renceng" readonly>
                                         <label for="list-paket-renceng">Paket Harga Renceng</label>
                                     </div>
                                 </td>
@@ -79,13 +76,13 @@
                             <tr>
                                 <td>
                                     <div class="form-group form-floating">
-                                        <input type="number" class="form-control" value="1" placeholder="Jumlah Renceng" id="qty-karton">
+                                        <input type="number" class="form-control" value="1" placeholder="Jumlah Renceng" id="qty-karton" disabled>
                                         <label for="qty-karton">Qty Karton</label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="form-group form-floating">
-                                        <input type="number" class="form-control" value="" placeholder="Jumlah Renceng" id="qty-renceng">
+                                        <input type="number" class="form-control" value="" placeholder="Jumlah Renceng" id="qty-renceng" disabled>
                                         <label for="qty-renceng">Qty Renceng</label>
                                     </div>
                                 </td>
@@ -94,17 +91,14 @@
                     </div>
                     <div class="col-6">
                         <div class="form-group form-floating">
-                            <select class="form-control" id="jenis">
-                                <option selected value="2">Lunas</option>
-                                <option value="1">Kredit</option>
-                            </select>
-                            <label for="jenis">Jenis</label>
+                            <input type="number" class="form-control" placeholder="Total Harga " id="total_harga" disabled>
+                            <label for="total_harga">Total Harga</label>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group form-floating">
-                            <input type="number" class="form-control" placeholder="Total Harga Renceng" id="total_harga" disabled>
-                            <label for="total_harga">Total Harga</label>
+                            <input type="number" class="form-control" placeholder="Total Harga Harus dibayar" id="total_harga_harus_dibayar" disabled>
+                            <label for="total_harga_harus_dibayar">Total harga yang harus dibayar</label>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
                     </div>
                     <div class="row">
                         <div class="col-auto">
-                            <p style="font-size: 14px;">Terjual<br><small class="text-muted" id="terjual-karton"></small> <small class="text-muted" id="terjual-renceng"></small>  </p>
+                            <p style="font-size: 14px;">Terjual<br><small class="text-muted" id="terjual-karton"></small> <small class="text-muted" id="terjual-renceng"></small> </p>
                         </div>
                         <div class="col-auto">
                             <p style="font-size: 14px;">Sisa<br><small class="text-muted" id="sisa-karton"></small> <small class="text-muted" id="sisa-renceng"></small></p>
@@ -21,7 +21,9 @@
             </div>
         </div>
     </div>
-
+    <div class="container d-flex flex-row-reverse px-0 mb-4" style="margin-bottom: 0.8rem !important; margin-top: -0.5rem!important;">
+        <a href="<?=base_url()?>newOutlet" style="padding: .157rem .75rem;" class="btn btn-primary btn-xs"> <i class="bi bi-plus"></i>New Outlet</a>
+    </div>
     <div class="row mb-4 h-190 position-relative bg-dark text-white">
         <div class="position-absolute start-0 top-0 coverimg h-100 w-100 opacity-5" style="background-image: url(&quot;assets/img/banner1.jpg&quot;);">
             <img src="assets/img/banner1.jpg" alt="" style="display: none;">
@@ -38,7 +40,7 @@
         </div>
     </div>
 
+
     <div class="row mb-4" id="list-warung">
     </div>
 </div>
-

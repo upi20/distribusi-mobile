@@ -52,3 +52,5 @@ $config['page_setting']     = 'hold-transition sidebar-mini  layout-fixed';
 $config['page_nav'] = 'main-header navbar navbar-expand navbar-white navbar-light';
 
 $config['minify'] = false;
+
+$config['api_base_url'] = 'https://distribusi.komunitashalal.com/api/';

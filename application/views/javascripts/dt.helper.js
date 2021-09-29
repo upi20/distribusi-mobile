@@ -16,35 +16,35 @@ function setBtnLoading(element, text, status = true) {
 	}
 }
 
-function ajax_select(btn = {id:'', pretext:'', text:''}, select, url, data = null, modal = false, initial_select = false, selected = '', method = 'post'){
+function ajax_select(btn = { id: '', pretext: '', text: '' }, select, url, data = null, modal = false, initial_select = false, selected = '', method = 'post') {
 	if (btn == false) {
 		setBtnLoading(btn.id, btn.pretext);
 	}
-    $.ajax({
-        method: 'post',
-        url: url,
-        data: data
-    }).done((data) => {
-        const init_select = initial_select != false ? `<option value="">${initial_select}</option>` : '';
-        // console.log(init_select);
+	$.ajax({
+		method: 'post',
+		url: url,
+		data: data
+	}).done((data) => {
+		const init_select = initial_select != false ? `<option value="">${initial_select}</option>` : '';
+		// console.log(init_select);
 		$(select).html('');
-        let html = init_select;
+		let html = init_select;
 		data.forEach(e => {
-            const select = e.id == selected ? 'selected' : '';
+			const select = e.id == selected ? 'selected' : '';
 			html += `<option value="${e.id}" ${select}>${e.text}</option>`;
 		});
-        $(select).html(html);
-        $(modal).modal('toggle');
-    }).fail(($xhr) => {
-        Toast.fire({
-            icon: 'error',
-            title: 'Gagal mendapatkan data.'
-        })
-    }).always(() => {
+		$(select).html(html);
+		$(modal).modal('toggle');
+	}).fail(($xhr) => {
+		Toast.fire({
+			icon: 'error',
+			title: 'Gagal mendapatkan data.'
+		})
+	}).always(() => {
 		if (btn == false) {
-        	setBtnLoading(btn.id, btn.text, false);
+			setBtnLoading(btn.id, btn.text, false);
 		}
-    })
+	})
 }
 
 function format_rupiah(angka, format = 2, prefix) {

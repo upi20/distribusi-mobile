@@ -33,7 +33,6 @@ class ProfileModel extends Render_Model
       'user_tgl_lahir' => $user_tgl_lahir,
       'user_jk' => $user_jk,
       'user_phone' => $user_phone,
-      'user_foto' => $user_foto,
       'user_email' => $user_email,
       'updated_at' => Date('Y-m-d h:i:s')
     ];

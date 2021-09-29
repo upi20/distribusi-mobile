@@ -1,33 +1,35 @@
 <!-- main page content -->
 <div class="main-container container pt-0">
     <!-- profile picture -->
-    <div class="row" style="margin-top: -5px;">
+    <div class="row" style="margin-top: -7px;">
         <div class="col-12 text-center bg-primary text-white position-relative py-4">
             <div class="coverimg position-absolute top-0 start-0 h-100 w-100 opacity-4">
-                <img src="<?=base_url()?>assets/mobile/img/soni-bg.png" alt="">
+                <img src="<?= base_url() ?>assets/bg.jpg" alt="">
             </div>
             <figure class="avatar avatar-160 rounded-circle mb-4 mx-auto">
-                <img src="<?=base_url()?>assets/mobile/img/soni.png" alt="">
+                <img src="" alt="Profile image" id="profile-image">
             </figure>
             <div class="clearfix"></div>
-            <h5 class="position-relative">Soni Setiawan</h5>
-            <p class="text-muted">Bandung, Urang Sunda Asli</p>
+            <h5 class="position-relative" id="profile-name"></h5>
         </div>
     </div>
 
     <!-- followers and connections -->
     <div class="row mb-4 text-center bg-whiter py-4">
+        <div class="" style="margin-bottom: 10px; margin-top: -10px;">
+            <p class="text-muted small">Periode: <b><?= date("01 M Y") ?></b> - <b><?= date("d M Y") ?></b></p>
+        </div>
         <div class="col">
-            <h6 class="mb-0">+254</h6>
+            <h6 class="mb-0" id="warung-total"></h6>
             <p class="text-muted small">Warung</p>
         </div>
         <div class="col">
-            <h6 class="mb-0">+300</h6>
-            <p class="text-muted small">Renceng</p>
+            <h6 class="mb-0" id="warung-karton"></h6>
+            <p class="text-muted small">Karton</p>
         </div>
         <div class="col">
-            <h6 class="mb-0">+18.300.000</h6>
-            <p class="text-muted small">Bonus</p>
+            <h6 class="mb-0" id="warung-renceng"></h6>
+            <p class="text-muted small">Renceng</p>
         </div>
     </div>
 
@@ -36,16 +38,10 @@
         <div class="col-12">
             <div class="card shadow-sm mb-4">
                 <div class="card-header">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td>
-                                <h6 class="my-1">Biodata Diri</h6>
-                            </td>
-                            <td style="float: right; margin-top: -20px;">
-                                <a onclick="editProfile()" target="_self" class="btn btn-xs btn-default mt-3" style="background-color: rgb(37 75 239 / 95%);"><i class="bi bi-save-fill"></i> Simpan</a>
-                            </td>
-                        </tr>
-                    </table>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h6 class="my-1">Biodata Diri</h6>
+                        <a onclick="editProfile()" target="_self" class="btn btn-xs btn-default" style="background-color: rgb(37 75 239 / 95%);"><i class="bi bi-save-fill"></i> Simpan</a>
+                    </div>
                 </div>
                 <div class="form-group form-floating">
                     <input type="text" class="form-control" placeholder="Nama Lengkap" value="Soni Setiawan" id="nama-lengkap">
@@ -67,6 +63,13 @@
                     <label for="emailphone">Nomor HP</label>
                 </div>
                 <hr>
+                <form action="" id="form-file" enctype="multipart/form-data">
+                    <div class="form-group form-floating">
+                        <input type="file" name="file" class="form-control" value="" id="upload-file">
+                        <label for="tanggal-lahir">Upload Profile</label>
+                    </div>
+                </form>
+                <hr>
                 <div class="form-group form-floating is-valid">
                     <input type="text" class="form-control" value="soni.bobotoh@gmail.com" placeholder="Email" id="email">
                     <label for="email">Email</label>
@@ -79,8 +82,7 @@
                 <div class="form-floating is-invalid">
                     <input type="password" class="form-control" placeholder="Confirm Password" id="password_2">
                     <label for="confirmpassword">Confirm Password</label>
-                    <button type="button" class="btn btn-link text-danger tooltip-btn" data-bs-toggle="tooltip"
-                        data-bs-placement="left" title="Enter valid Password" id="passworderror">
+                    <button type="button" class="btn btn-link text-danger tooltip-btn" data-bs-toggle="tooltip" data-bs-placement="left" title="Enter valid Password" id="passworderror">
                         <i class="bi bi-info-circle"></i>
                     </button>
                 </div>
@@ -89,6 +91,6 @@
         </div>
     </div>
 
-    
+
 </div>
 <!-- main page content ends -->

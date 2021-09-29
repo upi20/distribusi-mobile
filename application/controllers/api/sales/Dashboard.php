@@ -22,6 +22,23 @@ class Dashboard extends RestController
     ], RestController::HTTP_OK);
   }
 
+  public function warung_detail_get()
+  {
+    $id = $this->get('id');
+    $data = $this->model->api_warung_detail($this->id, $id);
+    $code = $data['data'] == null ?
+      RestController::HTTP_NOT_FOUND
+      : RestController::HTTP_OK;
+    $status = $data['data'] != null;
+
+    // send response
+    $this->response([
+      'status' => $status,
+      'length' => $data['length'],
+      'data' => $data['data']
+    ], $code);
+  }
+
   public function warung_get()
   {
     $id = $this->get('id');

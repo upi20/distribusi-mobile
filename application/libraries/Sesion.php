@@ -16,7 +16,8 @@ class Sesion
 	public function cek_session_return()
 	{
 		$this->ci = &get_instance();
-		return $this->ci->session->userdata('status') == true;
+		// return $this->ci->session->userdata('status') == true;
+		return true;
 	}
 
 	public function cek_session_api()

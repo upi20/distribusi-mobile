@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class KreditModel extends Render_Model
 {
-  public function api_warung($id_sales, $id = null, $cari): ?array
+  public function api_warung($id_sales, $id = null, $cari=null): ?array
   {
     $status_kredit = 1;
     $this->db->select("a.id,

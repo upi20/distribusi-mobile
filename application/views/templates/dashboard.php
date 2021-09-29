@@ -32,17 +32,17 @@
 
     <!-- dynamic css -->
     <?php if (!empty($plugin_styles)) : ?>
-		<!-- BEGIN PAGE LEVEL PLUGINS -->
-		<?php foreach ($plugin_styles as $style) : ?>
-			<link href="<?= $style ?>" rel="stylesheet" type="text/css" />
-		<?php endforeach; ?>
-		<!-- END PAGE LEVEL PLUGINS -->
-	<?php endif; ?>
-	<style type="text/css">
-		.footer .nav .nav-item .nav-link span .nav-text{
-			display: block!important;
-		}
-	</style>
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <?php foreach ($plugin_styles as $style) : ?>
+            <link href="<?= $style ?>" rel="stylesheet" type="text/css" />
+        <?php endforeach; ?>
+        <!-- END PAGE LEVEL PLUGINS -->
+    <?php endif; ?>
+    <style type="text/css">
+        .footer .nav .nav-item .nav-link span .nav-text {
+            display: block !important;
+        }
+    </style>
 
 </head>
 
@@ -72,21 +72,20 @@
         <header class="container-fluid header" style="background: rgb(37 75 239 / 95%);">
             <div class="row">
                 <div class="col-auto">
-                    <a href="<?=base_url()?>home" class="position-relative d-block mr-3">
+                    <a href="<?= base_url() ?>home" class="position-relative d-block mr-3">
                         <figure class="avatar avatar-36 rounded-circle">
-                            <img src="<?=base_url()?>assets/mobile/img/logo.svg" alt="">
+                            <img src="<?= base_url() ?>assets/mobile/img/logo.svg" alt="">
                         </figure>
                     </a>
                 </div>
                 <div class="col pl-0">
-                    <h6 style="color: white; padding-top: 10px; text-align: left; margin-left: -10px;">DISTRIBUTOR KOPIGADJAH</h6>
+                    <h6 style="color: white; padding-top: 10px; text-align: left; margin-left: -10px;">BOBOTOH DISTRIBUSI</h6>
                 </div>
                 <div class="col-auto align-self-center">
-                    <a href="<?=base_url()?>profil" class="position-relative d-block mr-3">
-                        <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1 mt-2 mr-2"><span
-                                class="visually-hidden">unread messages</span></span>
+                    <a href="<?= base_url() ?>profil" class="position-relative d-block mr-3">
+                        <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1 mt-2 mr-2"><span class="visually-hidden">unread messages</span></span>
                         <figure class="avatar avatar-36 rounded-circle">
-                            <img src="<?=base_url()?>assets/mobile/img/soni.png" alt="">
+                            <img src="<?= base_url() ?>assets/template/dist/img/avatar.png" onerror="this.src='<?= base_url() ?>assets/template/dist/img/avatar.png'" alt="" id="nav-profile">
                         </figure>
                     </a>
                 </div>
@@ -96,8 +95,8 @@
 
         <!-- main page content -->
         <?php if (file_exists(VIEWPATH . "templates/contents/{$content}.php")) : ?>
-			<?php $this->load->view("templates/contents/{$content}.php"); ?>
-		<?php endif; ?>
+            <?php $this->load->view("templates/contents/{$content}.php"); ?>
+        <?php endif; ?>
         <!-- main page content ends -->
 
 
@@ -109,7 +108,7 @@
         <div class="container">
             <ul class="nav nav-pills nav-justified">
                 <li class="nav-item" style="margin-bottom: 5px;">
-                    <a class="nav-link <?php if($menu == 'home') echo 'active';?>" href="<?=base_url('home')?>">
+                    <a class="nav-link <?php if ($menu == 'home') echo 'active'; ?>" href="<?= base_url('home') ?>">
                         <span>
                             <i class="nav-icon bi bi-bookmarks"></i>
                             <span class="nav-text">Home</span>
@@ -118,7 +117,7 @@
                 </li>
 
                 <li class="nav-item" style="margin-bottom: 5px;">
-                    <a class="nav-link <?php if($menu == 'kredit') echo 'active';?>" href="<?=base_url('kredit')?>">
+                    <a class="nav-link <?php if ($menu == 'kredit') echo 'active'; ?>" href="<?= base_url('kredit') ?>">
                         <span>
                             <i class="nav-icon bi bi-laptop"></i>
                             <span class="nav-text">Kredit</span>
@@ -126,15 +125,15 @@
                     </a>
                 </li>
                 <li class="nav-item" style="margin-bottom: 5px;">
-                    <a class="nav-link <?php if($menu == 'home') echo 'chat';?>" href="<?=base_url('chat')?>">
+                    <a class="nav-link <?php if ($menu == 'riwayat') echo 'active'; ?>" href="<?= base_url('riwayat') ?>">
                         <span>
-                            <i class="nav-icon bi bi-palette"></i>
-                            <span class="nav-text">Chat</span>
+                            <i class="nav-icon bi bi-clock-history"></i>
+                            <span class="nav-text">Riwayat</span>
                         </span>
                     </a>
                 </li>
                 <li class="nav-item" style="margin-bottom: 5px;">
-                    <a class="nav-link <?php if($menu == 'profil') echo 'active';?>" href="<?=base_url('profil')?>">
+                    <a class="nav-link <?php if ($menu == 'profil') echo 'active'; ?>" href="<?= base_url('profil') ?>">
                         <span>
                             <i class="nav-icon bi bi-person"></i>
                             <span class="nav-text">Profil</span>
@@ -170,36 +169,53 @@
     <!-- page level custom script -->
     <script src="<?= base_url() ?>assets/mobile/js/app3.js"></script>
 
-	<!-- <script src="<?= $this->plugin->build_url('javascripts/api-client.js', FALSE, 'site') ?>" type="text/javascript"></script> -->
-	<!-- <script src="<?= $this->plugin->build_url('javascripts/application.js', FALSE, 'site') ?>" type="text/javascript"></script> -->
-	<!-- <script src="<?= $this->plugin->build_url('javascripts/dt.helper.js', FALSE, 'site') ?>" type="text/javascript"></script> -->
+    <!-- <script src="<?= $this->plugin->build_url('javascripts/api-client.js', FALSE, 'site') ?>" type="text/javascript"></script> -->
+    <!-- <script src="<?= $this->plugin->build_url('javascripts/application.js', FALSE, 'site') ?>" type="text/javascript"></script> -->
+    <script src="<?= $this->plugin->build_url('javascripts/dt.helper.js', FALSE, 'site') ?>" type="text/javascript"></script>
 
-	<?php if (file_exists(VIEWPATH . "javascripts/contents/{$content}.js")) : ?>
-		<script src="<?= $this->plugin->build_url("javascripts/contents/{$content}.js") ?>" type="text/javascript"></script>
-	<?php endif; ?>
+    <?php if (file_exists(VIEWPATH . "javascripts/contents/{$content}.js")) : ?>
+        <script src="<?= $this->plugin->build_url("javascripts/contents/{$content}.js") ?>" type="text/javascript"></script>
+    <?php endif; ?>
     <script type="text/javascript">
         let value_key = localStorage.getItem('key')
-        // let url = 'https://distribusi.komunitashalal.com/api/';
-        let url = '<?php echo base_url();?>api/';
+        const url = '<?= $this->config->item('api_base_url') ?>';
+        const base_url = '<?php echo base_url(); ?>';
 
-        function cekAuth(){
-            if(value_key == null){
-                window.location = '<?=base_url()?>login';
+        function cekAuth() {
+            if (value_key == null) {
+                window.location = '<?= base_url() ?>login';
             }
         }
 
-        function logout(){
-            localStorage.removeItem('key');   
-            localStorage.removeItem('id');   
-            localStorage.removeItem('email');   
-            localStorage.removeItem('level');   
+        function logout() {
+            localStorage.removeItem('key');
+            localStorage.removeItem('id');
+            localStorage.removeItem('email');
+            localStorage.removeItem('level');
             localStorage.removeItem('nama');
-            window.location = "<?=base_url()?>login"  
+            window.location = "<?= base_url() ?>login"
         }
 
-        $(function () {
+        $(function() {
             cekAuth()
         })
+
+        function profil() {
+            $.ajax({
+                method: 'get',
+                url: url + 'profile',
+                data: {
+                    key: value_key
+                }
+            }).done((datas) => {
+                const data = datas.data;
+                $("#nav-profile").attr('src', `${url}../files/profile/${data.profile.foto}`)
+            }).fail(($xhr) => {
+
+            })
+        }
+
+        profil();
     </script>
 </body>
 

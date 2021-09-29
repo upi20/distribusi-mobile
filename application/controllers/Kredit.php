@@ -29,6 +29,27 @@ class Kredit extends Render_Controller
         $this->render();
     }
 
+    public function bayar(){
+        $this->data['id_stok_keluar'] = $this->input->get('id_stok_keluar');
+        $this->data['id_warung'] = $this->input->get('id_warung');
+
+        // Page Settings
+        $this->title = 'Kredit';
+        $this->navigation = ['Kredit'];
+        $this->plugins = [];
+
+        // Breadcrumb setting
+        $this->breadcrumb_1 = 'Kredit';
+        $this->breadcrumb_1_url = base_url();
+
+        $this->data['menu'] = 'kredit';
+        $this->content      = 'sales/kredit-bayar';            
+        // content
+
+        // Send data to view
+        $this->render();
+    }
+
     function __construct()
     {
         parent::__construct();
