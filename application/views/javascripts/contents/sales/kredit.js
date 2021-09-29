@@ -75,6 +75,7 @@ function cari_kredit_warung() {
         });
 
     }).fail(($xhr) => {
+        const response = JSON.parse($xhr.responseText);
 
     })
 }

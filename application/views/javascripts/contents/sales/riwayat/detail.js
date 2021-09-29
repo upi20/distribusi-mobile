@@ -13,7 +13,6 @@ $(function () {
 			const data = datas.data;
 
 			$("#kode").val(data.kode);
-// 			console.log(data.kode);
 			$("#pemilik").val(data.nama)
 			$("#warung").val(data.nama)
 			$("#alamat").val(data.alamat)
@@ -31,7 +30,11 @@ $(function () {
 			$("#tanggal").text(data.tanggal)
 			$("#status").addClass(`text-${data.status == 1 ? 'danger' : 'success'}`);
 		}).fail(($xhr) => {
-
+			const response = JSON.parse($xhr.responseText);
+			setToast({
+				fill: response.message,
+				background: "bg-danger"
+			})
 		})
 	}
 	// end menu penjualan

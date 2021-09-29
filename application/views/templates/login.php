@@ -32,6 +32,16 @@
 
     <!-- Begin page content -->
     <main class="container-fluid h-100">
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 9999">
+            <div id="liveToast" class="toast hide p-3 align-items-center text-white border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body" id="toast-body">
+
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
         <div class="row h-100">
             <div class="col-10 col-md-6 col-lg-5 col-xl-3 mx-auto mt-auto pt-4 text-center mb-100px d-grid gap-2" style="margin-bottom: 180px!important;">
                 <h3 class="mb-1">BOBOTOH DISTRIBUSI</h3>
@@ -104,14 +114,36 @@
                     localStorage.setItem('email', data.data.email);
                     localStorage.setItem('level', data.data.level);
                     localStorage.setItem('nama', data.data.nama);
-                    window.location = "<?= base_url() ?>home";
-
+                    setToast({
+                        fill: "Login Berhasil",
+                        background: "bg-success"
+                    })
+                    setTimeout(() => {
+                        window.location = "<?= base_url() ?>home";
+                    }, 300);
                 }).fail(($xhr) => {
-                    alert('Mohon maaf, periksa kembali akun anda')
+                    const response = JSON.parse($xhr.responseText);
+                    setToast({
+                        fill: response.message,
+                        background: "bg-danger"
+                    })
                 })
             })
 
         })
+        toast_last_background = '';
+
+        function setToast({
+            fill = '',
+            background = 'bg-primary'
+        }) {
+            const toastId = '#liveToast';
+            $(toastId).removeClass(toast_last_background);
+            $(toastId).addClass(background);
+            $(toastId).html(fill);
+            toast_last_background = background;
+            (new bootstrap.Toast(document.querySelector('#liveToast')).show());
+        }
     </script>
 
 </body>

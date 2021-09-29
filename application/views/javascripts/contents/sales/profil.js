@@ -48,7 +48,10 @@ function editProfile() {
 
     if (password != '') {
         if (password_2 != password) {
-            alert('Mohon maaf, periksa kembali passwordnya. terimakasih')
+            setToast({
+                fill: "Mohon maaf, periksa kembali passwordnya. terimakasih",
+                background: "bg-danger"
+            })
         } else {
 
         }
@@ -76,18 +79,31 @@ function editProfile() {
                     processData: false,
                     contentType: false,
                 }).done((data) => {
-                    alert('profile berhasil diubah')
+
+                    setToast({
+                        fill: "Data berhasil diubah",
+                        background: "bg-primary"
+                    })
                     window.location = base_url + 'profil';
                 }).fail(($xhr) => {
 
                 })
             } else {
-                alert('profile berhasil diubah')
-                window.location = base_url + 'profil';
+
+                setToast({
+                    fill: "Data berhasil diubah",
+                    background: "bg-primary"
+                })
+                setTimeout(() => {
+                    window.location = base_url + 'profil';
+                }, 300);
             }
         }).fail(($xhr) => {
             const response = JSON.parse($xhr.responseText);
-            alert(response.message);
+            setToast({
+                fill: response.message,
+                background: "bg-danger"
+            })
         })
     }
 

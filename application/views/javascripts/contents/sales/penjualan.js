@@ -61,7 +61,11 @@ $(function () {
 			$("#pemilik").val(data.data.nama_pemilik)
 			$("#alamat").val(data.data.alamat)
 		}).fail(($xhr) => {
-
+			const response = JSON.parse($xhr.responseText);
+			setToast({
+				fill: response.message,
+				background: "bg-danger"
+			})
 		})
 	}
 
@@ -79,7 +83,11 @@ $(function () {
 			}
 			list_paket();
 		}).fail(($xhr) => {
-
+			const response = JSON.parse($xhr.responseText);
+			setToast({
+				fill: response.message,
+				background: "bg-danger"
+			})
 		})
 	}
 
@@ -126,11 +134,18 @@ $(function () {
 
 				if (!(karton || renceng)) {
 					$('#btn-kirim').attr('hidden', '');
-					alert('Maaf Tidak bisa melakukan penjualan karena produk tidak memiliki paket harga karton maupun renceng.');
+					setToast({
+						fill: "Maaf Tidak bisa melakukan penjualan karena produk tidak memiliki paket harga karton maupun renceng.",
+						background: "bg-danger"
+					})
 				}
 			}
 		}).fail(($xhr) => {
-
+			const response = JSON.parse($xhr.responseText);
+			setToast({
+				fill: response.message,
+				background: "bg-danger"
+			})
 		})
 	}
 	// end menu penjualan
@@ -176,7 +191,10 @@ function simpanPenjualan(element) {
 	}
 
 	if (qty_karton < 1 && qty_renceng < 1) {
-		alert('Qty penjualan minimal 1');
+		setToast({
+			fill: "Qty penjualan minimal 1",
+			background: "bg-danger"
+		})
 		return;
 	}
 
@@ -206,9 +224,20 @@ function simpanPenjualan(element) {
 			id_warung: id_warung
 		}
 	}).done((data) => {
-		window.location = base_url + 'home'
-	}).fail(($xhr) => {
+		setToast({
+			fill: "Data berhasil disimpan",
+			background: "bg-success"
+		})
+		setTimeout(() => {
 
+			window.location = base_url + 'home'
+		}, 300);
+	}).fail(($xhr) => {
+		const response = JSON.parse($xhr.responseText);
+		setToast({
+			fill: response.message,
+			background: "bg-danger"
+		})
 	})
 
 }

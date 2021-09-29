@@ -50,7 +50,11 @@ $(function () {
 			global_total_harga_harus_dibayar = data.dibayar == '0' ? data.total_harga : data.sisa;
 			$("#total_harga_harus_dibayar").val(global_total_harga_harus_dibayar);
 		}).fail(($xhr) => {
-
+			const response = JSON.parse($xhr.responseText);
+			setToast({
+				fill: response.message,
+				background: "bg-danger"
+			})
 		})
 	}
 	// end menu penjualan
@@ -89,10 +93,19 @@ function simpanPenjualan(element) {
 			key: value_key
 		}
 	}).done((data) => {
-		alert('Pembayaran berhasil');
-		window.location = base_url + 'kredit';
+		setToast({
+			fill: "Pembayaran Berhasil",
+			background: "bg-primary"
+		})
+		setTimeout(() => {
+			window.location = base_url + 'kredit';
+		}, 300);
 	}).fail(($xhr) => {
-
+		const response = JSON.parse($xhr.responseText);
+		setToast({
+			fill: response.message,
+			background: "bg-danger"
+		})
 	})
 
 }

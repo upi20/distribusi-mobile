@@ -53,4 +53,4 @@ $config['page_nav'] = 'main-header navbar navbar-expand navbar-white navbar-ligh
 
 $config['minify'] = false;
 
-$config['api_base_url'] = 'https://distribusi.komunitashalal.com/api/';
+$config['api_base_url'] = 'http://localhost/aplikasi/berjalan/distribusi-kopigadjah/api/';

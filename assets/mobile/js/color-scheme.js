@@ -36,7 +36,7 @@ $(document).ready(function () {
         }
     });
 
-    
+
     $('#darkmodeswitch').on('click', function () {
         if ($(this).is(':checked')) {
             $.cookie("layoutmode", "dark-mode", {
@@ -89,7 +89,7 @@ $(document).ready(function () {
     /* color style  */
     if ($.type($.cookie("setstylesheet")) != 'undefined' && $.cookie("setstylesheet") != '') {
         var currentstyle = $('#style');
-        $('head').append('<link href="assets/css/style-' + $.cookie("setstylesheet") + '.css" rel="stylesheet"  id="style" type="text/css" >');
+        $('head').append('<link href="./css/style-' + $.cookie("setstylesheet") + '.css" rel="stylesheet"  id="style" type="text/css" >');
         setTimeout(function () {
             currentstyle.remove();
         }, 1000);
@@ -115,7 +115,7 @@ $(document).ready(function () {
             $.cookie("setstylesheet", setstyle, {
                 expires: 1
             });
-            $('head').append('<link href="assets/css/style-' + setstyle + '.css" rel="stylesheet"  id="style" type="text/css" >');
+            $('head').append('<link href="./css/style-' + setstyle + '.css" rel="stylesheet"  id="style" type="text/css" >');
             setTimeout(function () {
                 currentstyle.remove();
             }, 1300);
@@ -124,7 +124,7 @@ $(document).ready(function () {
             $.cookie("setstylesheet", "", {
                 expires: 1
             });
-            $('head').append('<link href="assets/css/style.css" rel="stylesheet"  id="style" type="text/css" >');
+            $('head').append('<link href="./css/style.css" rel="stylesheet"  id="style" type="text/css" >');
             setTimeout(function () {
                 currentstyle.remove();
             }, 1300);
