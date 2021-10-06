@@ -20,13 +20,25 @@
                         </tr>
                     </table>
                 </div>
-                <br>
-                <div class="container">
+                <div class="card-body">
                     <div class="row p-0">
                         <div class="col-6">
                             <div class="form-group form-floating">
                                 <input type="text" class="form-control" placeholder="Kode" value="" id="kode" readonly>
-                                <label for="kode">Pemilik</label>
+                                <label for="kode">Kode</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex justify-content-between align-items-between flex-row-reverse">
+                                <button class="btn btn-sm" onclick="isUbah(this)" id="btn-ubah">
+                                    Ubah
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group form-floating">
+                                <input type="text" class="form-control" placeholder="Nama Lengkap" value="Soni Setiawan" id="warung" readonly>
+                                <label for="warung">Warung</label>
                             </div>
                         </div>
                         <div class="col-6">
@@ -37,7 +49,7 @@
                         </div>
                         <div class="col-12">
                             <div class="form-group form-floating">
-                                <textarea class="form-control" id="alamat" readonly=""></textarea>
+                                <textarea class="form-control" id="alamat" readonly="" style="height:150px"></textarea>
                                 <label for="alamat">Alamat</label>
                             </div>
                         </div>
@@ -109,6 +121,13 @@
                             <span class="small text-secondary">Status</span>
                             <p id="status"></p>
                         </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between align-items-between flex-row-reverse">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            Simpan
+                        </button>
                     </div>
                 </div>
             </div>

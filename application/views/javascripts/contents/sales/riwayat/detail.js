@@ -13,8 +13,8 @@ $(function () {
 			const data = datas.data;
 
 			$("#kode").val(data.kode);
-			$("#pemilik").val(data.nama)
-			$("#warung").val(data.nama)
+			$("#pemilik").val(data.nama_pemilik)
+			$("#warung").val(data.nama_warung)
 			$("#alamat").val(data.alamat)
 			$("#produk").val(data.nama_produk)
 			$("#qty-renceng").val(data.jumlah_renceng)
@@ -55,3 +55,25 @@ var getUrlParameter = function getUrlParameter(sParam) {
 	}
 	return false;
 };
+
+
+function isUbah(datas) {
+	const ubah = $(datas).data('isubah') == 1;
+	const container_btn = $('.card-footer');
+	const btn = $('#btn-ubah');
+	if (ubah) {
+		btn.data('isubah', 0);
+		btn.addClass('btn-info');
+		btn.removeClass('btn-danger');
+		btn.text('Batal');
+		container_btn.fadeIn();
+	} else {
+		btn.data('isubah', 1);
+		container_btn.fadeOut();
+		btn.addClass('btn-danger');
+		btn.removeClass('btn-info');
+		btn.text('Ubah');
+	}
+}
+
+isUbah();
